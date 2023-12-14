@@ -21,3 +21,14 @@ const bruno = new Pessoa('Bruno', '15 anos');
 // addClass(classe), adiciona a classe a todos os elementos
 // removeClass(classe), remove a classe a todos os elementos
 
+function Dom(seletor){
+  const element = document.querySelectorAll(seletor);
+  element.forEach((item)=>{
+    this.ativo = function(classe){
+      item.classList.add(classe);
+    }
+  });
+}
+
+const lista = new Dom('li');
+lista.ativo('ativo');
