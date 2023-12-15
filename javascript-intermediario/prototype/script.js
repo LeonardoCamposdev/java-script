@@ -20,6 +20,12 @@ Pessoa.prototype.nadar = function(){
 
 const leo = new Pessoa('Léo', 24);
 
+console.log(leo.nome);
+console.log(leo.idade);
+console.log(leo.andar());
+console.log(leo.nadar());
+
+
 console.log(Pessoa.prototype);
 console.log(leo.prototype);
 
