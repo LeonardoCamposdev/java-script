@@ -12,7 +12,7 @@ Pessoa.prototype.nomeCompleto = function(){
   return this.nome + this.sobrenome;
 }
 
-const leo = new Pessoa('Léo', ' Campos', 24);
+const leo = new Pessoa('Leonardo', ' Campos', 24);
 const ravi = new Pessoa('Ravi Mayk', ' Muniz', 4);
 
 // Liste os métodos acessados por 
@@ -21,17 +21,18 @@ const ravi = new Pessoa('Ravi Mayk', ' Muniz', 4);
 console.log(NodeList.prototype);
 console.log(HTMLAllCollection.prototype);
 console.log(Document.prototype);
-
 // Liste os construtores dos dados abaixo
 const li = document.querySelector('li');
 
-li; // HTMLLIElement
-li.click; // Function
-li.innerText; // String
-li.value; // Number
-li.hidden; // Boolean
-li.offsetLeft; // Number
-li.click(); // Event
+li; // 'HTMLLIElement'
+li.click; // 'Function'
+li.innerText; // 'String'
+li.value; // 'Number'
+li.hidden; //  'Boolean'
+li.offsetLeft; // 'Number'
+li.click(); // undefined
 
 // Qual o construtor do dado abaixo:
-li.hidden.constructor.name; // Boolean
+li.hidden.constructor.name; // retonar uma string !!!
+// 'Boolean'
+// porém o construtor do .name é uma string
