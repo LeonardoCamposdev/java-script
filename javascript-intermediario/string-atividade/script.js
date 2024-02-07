@@ -24,20 +24,20 @@ const transacoes = [
   },
 ];
 
-let taxaTotal = 0;
-let recebimentoTotal = 0;
+let totalTaxas = 0;
+let totalRecebimento = 0;
 transacoes.forEach((item) => {
   const numeroLimpo = +item.valor.replace("R$ ", "");
 
   if (item.descricao.slice(0, 4) === "Taxa") {
-    taxaTotal += numeroLimpo;
+    totalTaxas += numeroLimpo;
   } else if (item.descricao.slice(0, 4) === "Rece") {
-    recebimentoTotal += numeroLimpo;
+    totalRecebimento += numeroLimpo;
   }
 });
-console.log(taxaTotal);
-console.log(recebimentoTotal);
 
+console.log(`o valor total de taxas é  de ${totalTaxas}`);
+console.log(`o valor total de recebimento é de ${totalRecebimento}`);
 // no número limpo ele está limpando o R$, para que o número fique puro (NUMBER)
 // e não como uma string, então COM O REPLACE tudo que for R$, ele vai substituir por nada
 // depois temos que colocar o (+) na frente, para que seja transformado
@@ -81,7 +81,7 @@ const transacoes2 = [
 
 let taxasTotal = 0;
 transacoes2.forEach((item) => {
-  item = item.toLocaleLowerCase();
+  item = item.toLowerCase();
   item = item.trim();
   item = item.slice(0, 4);
 
