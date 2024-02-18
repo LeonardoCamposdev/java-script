@@ -25,6 +25,7 @@ function limparPreco(preco) {
   // para conseguirmos transformar os R$, tudo em maiusculo
   // para tirarmos o R$, limpar os espacos, e trocar a virgula por o (. ponto)
   preco = +preco.toFixed(2);
+  // para conseguirmos arredondar o valor!!
   return preco;
 }
 

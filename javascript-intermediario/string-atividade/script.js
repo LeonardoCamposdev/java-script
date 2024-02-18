@@ -35,8 +35,8 @@ transacoes.forEach((item) => {
   }
 });
 
-console.log(`o valor total da taxa é ${totalTaxa}`);
-console.log(`o valor total do recebimento é ${totalRecebimento}`);
+console.log(o valor total da taxa é ${totalTaxa});
+console.log(o valor total do recebimento é ${totalRecebimento});
 // no número limpo ele está limpando o R$, para que o número fique puro (NUMBER)
 // e não como uma string, então COM O REPLACE tudo que for R$, ele vai substituir por nada
 // depois temos que colocar o (+) na frente, para que seja transformado
