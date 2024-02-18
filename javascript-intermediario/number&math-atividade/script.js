@@ -35,9 +35,7 @@ listaPrecos.forEach((preco) => {
 });
 
 console.log(soma);
-console.log(
-  soma.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })
-);
+console.log(soma.toLocaleString("pt-BR", { style: "currency", currency: "BRL" }));
 // para transformar o valor em VALOR DO REAL BRASILEIRO!!!!
 limparPreco(listaPrecos[1]);
 
