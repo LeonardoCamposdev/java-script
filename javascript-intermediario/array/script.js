@@ -66,3 +66,4 @@ console.log(carros2.shift()); // no log vai dar o Kia (que é o primeiro carro, 
 console.log(carros2);
 
 console.log(carros2.reverse()); // o reverse vai mudar a array ao contrario, vai começar de trás para frente!!!!!!
+// e vai modificar quando a gente dar no console carros2 dnv, vai já está modificada com o reverse
