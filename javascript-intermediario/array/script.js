@@ -56,14 +56,40 @@ const carros2 = ["Ford", "Fiat", "VW"];
 carros2.unshift("Kia", "Ferrari"); // ADICIONA NO COMEÇO!!!
 carros2.push("Hyundai", "Porsh"); // ADICIONA NO FINAL!!!
 
-console.log(carros2);
-console.log(carros2.push("Hyundai", "Porsh")); // JÁ SE DEMOS O CONSOLE LOGO NO PUSH OU NO UNSHIFT VAI RETORNAR O LENGTH!!!!
+//console.log(carros2);
+//console.log(carros2.push("Hyundai", "Porsh")); // JÁ SE DEMOS O CONSOLE LOGO NO PUSH OU NO UNSHIFT VAI RETORNAR O LENGTH!!!!
 
-console.log(carros2.pop()); // no log vai dar o porsh (que é o ultimo carro, porem quando usamos o console.log(na array completa, o porsh vai estar removido))
-console.log(carros2);
+//console.log(carros2.pop()); // no log vai dar o porsh (que é o ultimo carro, porem quando usamos o console.log(na array completa, o porsh vai estar removido))
+//console.log(carros2);
 
-console.log(carros2.shift()); // no log vai dar o Kia (que é o primeiro carro, porem quando usamos o console.log(na array completa, o Kia vai estar removido))
-console.log(carros2);
+//console.log(carros2.shift()); // no log vai dar o Kia (que é o primeiro carro, porem quando usamos o console.log(na array completa, o Kia vai estar removido))
+//console.log(carros2);
 
-console.log(carros2.reverse()); // o reverse vai mudar a array ao contrario, vai começar de trás para frente!!!!!!
+//console.log(carros2.reverse()); // o reverse vai mudar a array ao contrario, vai começar de trás para frente!!!!!!
 // e vai modificar quando a gente dar no console carros2 dnv, vai já está modificada com o reverse
+
+console.log(carros2);
+console.log(carros2.splice(2, 2, "Fusca")); // aqui no log ele retorna os itens que forem removidos!!!!
+console.log(carros2);
+
+console.log(["Item1", "Item2", "Item3", "Item4", "item5"].copyWithin(2, 0, 3));
+// a partir do item 2, eu quero fazer uma copia, começando do item 0 e indo até o item 3!!
+
+console.log(["Item1", "Item2", "Item3", "Item4"].fill("Banana"));
+
+const transporte1 = ["Barco", "Aviao"];
+const transporte2 = ["Carro", "Moto"];
+const transportes = transporte1.concat(transporte2, "Xesqdele");
+console.log(transportes);
+
+const linguagens = ["html", "css", "js", "php", "python", "js"];
+
+let htmlString = "<h2>Título Principal</h2>";
+htmlString = htmlString.split("h2");
+htmlString = htmlString.join("h1");
+
+console.log(htmlString);
+
+const linguagens2 = ["html", "css", "js", "php", "python"];
+
+console.log(linguagens2.slice(2,4));
