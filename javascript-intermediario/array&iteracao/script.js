@@ -30,12 +30,14 @@ const novaArray = carros2.map((item, index, array) => {
 });
 
 const numeros = [2, 4, 5, 6, 78];
-const numerosX2 = numeros.map((n) => n * 2);
+const numerosX2 = numeros.map((n) => n * 2); // o return está aqui invisível, quando o código é só de uma linha!!!
 
+console.log(numeros);
 console.log(numerosX2);
 
-console.log(novaArray);
 console.log(carros2);
+console.log(novaArray);
+
 // novaArray e Carros são duas arrays diferentes
 // O MAP VAI SERVIR PARA QUANDO VOCÊ QUISER RETORNAR UMA ARRAY COM OS VALORES QUE VOCÊ TINHA (MODIFICADOS!!!!!)
 // SEMPRE QUE VOCÊ PRECISAR DE UMA NOVA ARRAY A PATIR DAQUELA QUE VOCÊ TINHA ANTERIOR VOCÊ VAI USAR O MAP!!!
@@ -100,3 +102,33 @@ console.log(maiorNumero);
 
 // o anterior é igual a reduce!!
 // o autal é igual ao item!!
+
+const aulas3 = [
+  {
+    nome: "HTML 1",
+    min: 15,
+  },
+  {
+    nome: "HTML 2",
+    min: 10,
+  },
+  {
+    nome: "CSS 1",
+    min: 20,
+  },
+  {
+    nome: "JS 1",
+    min: 25,
+  },
+];
+
+const listaAulas = aulas3.reduce((acumulador, aula, index) => {
+  acumulador[index] = aula.nome;
+  return acumulador
+}, {});
+
+console.log(listaAulas);
+
+// por trás de tudo está acontecendo isso
+// var acumulador= {}
+// acumulador[0] = "HTML 1"  (ai vai fazer o loop até o ultimo objeto que no caso é a ula aula)
