@@ -124,7 +124,7 @@ const aulas3 = [
 
 const listaAulas = aulas3.reduce((acumulador, aula, index) => {
   acumulador[index] = aula.nome;
-  return acumulador
+  return acumulador;
 }, {});
 
 console.log(listaAulas);
@@ -132,3 +132,111 @@ console.log(listaAulas);
 // por trás de tudo está acontecendo isso
 // var acumulador= {}
 // acumulador[0] = "HTML 1"  (ai vai fazer o loop até o ultimo objeto que no caso é a ula aula)
+
+const frutas = ["Banana", "Pêra", "Uva"];
+
+const frutasRight = frutas.reduceRight((acumulador, fruta) => {
+  return acumulador + ", " + fruta;
+});
+
+console.log(frutas);
+console.log(frutasRight);
+
+// SOME = PELO MENOS 1 TRUE
+const frutas2 = ["Banana", "Pêra", "Uva", "Uva sem semente"];
+
+const uvaDiferente = frutas2.some((fruta) => {
+  return fruta === "Uva sem semente";
+});
+
+// no some(),se pelo menos um returnda iteraçãofor thuthy,ele retorna true.
+
+console.log(uvaDiferente);
+
+function maiorQue100(numero) {
+  return numero > 100;
+}
+
+const maiorNumero2 = [4, 12, 25, 54, 9, 3];
+
+const temMaior = maiorNumero2.some(maiorQue100);
+console.log(temMaior);
+
+// vai dar false porque não existe número maior que 100 não
+
+// EVERY  = TODOS ELES
+const frutas3 = ["Banana", "Pêra", "", "Uva sem semente"];
+
+const todasFrutas = frutas3.every((fruta) => {
+  return fruta;
+});
+
+console.log(todasFrutas);
+
+// se tiver algum (undefined), (null)vai dar false, ou caracter vazio "", também da false.
+
+const numeros3 = [4, 5, 67, 12, 53, 14];
+
+const maiorQue3 = numeros3.every((n) => n > 3); //quando usamos apenas 1 linha o return está ali escondido
+
+console.log(maiorQue3);
+
+//FINDINDEXX
+const frutas4 = ["", "Banana", "Pêra", "Uva sem semente"];
+
+const indexUva = frutas4.findIndex((fruta) => {
+  return fruta === "Uva sem semente";
+});
+
+const indexUva2 = frutas4.find((fruta) => {
+  return fruta;
+});
+
+console.log("Index:", indexUva); // retorna 2 o número do index do item uva sem semente.
+console.log(indexUva2); // vai retonar o item quando o loop começar e achar esse tal item.
+
+//FILTER
+// NO FILTER A ITERAÇÃO NÃO ACABA QUANDO CHEGAR NO TRUE OU NO FALSE. A ITERAÇÃO CONTINUA ATÉ PASSAR POR TODOS OS ITENS DA ARRAY
+// AO TERMINAR ITERAÇÃO POR A ARRAY COMPLETA AI SIM, ELA VAI RETOANR UMA ARRAY, SÓ COM OS VALORES TRUE
+// TUDO QUE FOR FALSE, VAI SER EXCLUIDO
+
+const frutas5 = ["Banana", undefined, null, "", "Uva", 0, "Maçã"];
+
+const arrayLimpa = frutas5.filter((fruta) => {
+  return fruta;
+});
+
+console.log(arrayLimpa);
+
+const numeros4 = [23, 32, 1, 27, 46];
+
+const buscarMaior23 = numeros4.filter((n) => n > 23);
+
+console.log(buscarMaior23);
+
+const aulas4 = [
+  {
+    nome: "HTML 1",
+    min: 15,
+  },
+  {
+    nome: "HTML 2",
+    min: 10,
+  },
+  {
+    nome: "CSS 1",
+    min: 20,
+  },
+  {
+    nome: "JS 1",
+    min: 25,
+  },
+];
+
+const maiores15 = aulas4.filter((aula) => {
+  if (aula.min > 15) {
+    return aula.nome;
+  }
+});
+
+console.log(maiores15);
