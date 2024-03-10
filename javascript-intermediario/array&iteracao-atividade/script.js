@@ -1,15 +1,15 @@
 // Selecione cada curso e retorne uma array
 // com objetos contendo o título, descricao,
 // aulas e horas de cada curso
-const cursos = document.querySelectorAll(".curso"); // NODELIST
+const cursos = document.querySelectorAll(".curso"); // ARRAY
 
-const arrayCursos = Array.from(cursos); // ARRAY
+const arrayCursos = Array.from(cursos); // NODELIST
 
 const objetosCurso = arrayCursos.map((curso) => {
   const titulo = curso.querySelector("h1").innerText;
   const descricao = curso.querySelector("p").innerText;
   const aulas = curso.querySelector(".aulas").innerText;
-  const horas = curso.querySelector(".horas").innerText;
+  const horas = curso.querySelector(".horas").innerHTML;
   return {
     titulo,
     descricao,
@@ -17,24 +17,24 @@ const objetosCurso = arrayCursos.map((curso) => {
     horas,
   };
 });
-
 console.log(objetosCurso);
 
 // Retorne uma lista com os
 // números maiores que 100
 const numeros = [3, 44, 333, 23, 122, 322, 33];
+const maioresQue100 = numeros.filter((n) => n > 100);
 
-const maiorque100 = numeros.filter((n) => n > 100); //return está invísivel
-
-console.log(maiorque100);
+console.log(maioresQue100);
 
 // Verifique se Baixo faz parte
 // da lista de instrumentos e retorne true
 const instrumentos = ["Guitarra", "Baixo", "Bateria", "Teclado"];
 
-const baixoTrue = instrumentos.some((i) => i === "Baixo"); //return está invísivel
+const instrumentosBaixo = instrumentos.some((instrumento) => {
+  return instrumento === "Baixo";
+});
 
-console.log(baixoTrue);
+console.log(instrumentosBaixo);
 
 // Retorne o valor total das compras
 const compras = [
@@ -60,9 +60,9 @@ const compras = [
   },
 ];
 
-const comprasTotal = compras.reduce((anterior, item) => {
-  const comprasValor = +item.preco.replace("R$", "").replace(",", ".");
-  return anterior + comprasValor;
+const comprasTotal = compras.reduce((acumulador, compra) => {
+  const precoLimpo = +compra.preco.replace("R$", "").replace(",", ".");
+  return acumulador + precoLimpo;
 }, 0);
 
-console.log(` o valor total das compras foi de ${comprasTotal}`);
+console.log(comprasTotal);
