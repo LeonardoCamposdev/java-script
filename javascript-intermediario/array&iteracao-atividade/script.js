@@ -61,7 +61,7 @@ const compras = [
 ];
 
 const comprasTotal = compras.reduce((acumulador, compra) => {
-  const precoLimpo = +compra.preco.replace("R$", "").replace(",", ".");
+  const precoLimpo = +compra.preco.replace("R$ ", "").replace(",", ".");
   return acumulador + precoLimpo;
 }, 0);
 
