@@ -38,12 +38,12 @@ carros.forEach.call(frutas, (item) => {
   console.log(item);
 });
 
+//
 function Dom(seletor) {
   this.element = document.querySelector(seletor);
 }
 
-Dom.prototype.ativo = function (classe) {
-  console.log(this);
+Dom.prototype.ativar = function (classe) {
   this.element.classList.add(classe);
 };
 
@@ -51,12 +51,9 @@ const li = {
   element: document.querySelector("li"),
 };
 
-Dom.prototype.ativo.call(li, "ativar");
+Dom.prototype.ativar.call(li, "xesqdele");
 
-//const ul = new Dom("ul");
-
-//ul.ativo.call(li,"ativo");
-
+//
 const frutas2 = ["Uva", "Maça", "Banana"];
 
 Array.prototype.pop.call(frutas2);
@@ -67,6 +64,7 @@ const arrayLike = {
   2: "Item3",
   length: 3,
 };
+//
 
 const li2 = document.querySelectorAll("li");
 
@@ -75,3 +73,19 @@ const filtro = Array.prototype.filter.call(li2, (item) => {
 });
 
 console.log(filtro);
+
+const carro2 = {
+  marca: "Ford",
+  ano: 2018,
+  acelerar: function (aceleracao, tempo) {
+    return `${this.marca} acelerou ${aceleracao} em ${tempo}`;
+  },
+};
+
+const honda = {
+  marca: "Honda",
+};
+
+const acelerarHonda = carro2.acelerar.bind(honda, 300);
+
+console.log(acelerarHonda(10));
