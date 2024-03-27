@@ -57,10 +57,14 @@ Object.defineProperties(moto2, {
   rodas: {
     //configurable: false, //NÃO CONSEGUE DELETAR ESSA PROPIEDADE (RODAS).
     //writable: true, // MAS AQUI CONSEGUE ESCREVER EM CIMA E MUDAR O VALOR.
-    get() { // QUANDO DEFINIRMOS UM VALOR AQUI
-      return this._rodas;
+    get() {
+      // TRADUÇÃO (pegar)
+      // QUANDO DEFINIRMOS OU ATRIBUIMOS UM VALOR AQUI
+      return this._rodas; // aqui é uma propiedade nova dentro do get
     },
-    set(valor) { // O SET VAI MODIFICAR O VALOR QUE SETAMOS A CIMA NO GET!!!
+    set(valor) {
+      // TRADUÇÃO (definir)
+      // O SET VAI MODIFICAR O VALOR QUE SETAMOS A CIMA NO GET!!!
       this._rodas = valor * 2 + " Total Rodas";
     },
   },
