@@ -55,6 +55,7 @@ const moto2 = {
 
 Object.defineProperties(moto2, {
   rodas: {
+    enumerable: true,
     //configurable: false, //NÃO CONSEGUE DELETAR ESSA PROPIEDADE (RODAS).
     //writable: true, // MAS AQUI CONSEGUE ESCREVER EM CIMA E MUDAR O VALOR.
     get() {
@@ -71,3 +72,39 @@ Object.defineProperties(moto2, {
 });
 
 console.log(moto2);
+console.log((moto2.rodas = 50)); //PRIMEIRO ESTAMOS DEFININDO O VALOR DAS RODAS (GET)
+console.log(moto2.rodas); // AQUI O SET ENTRA EM AÇÃO, PORQUE ELE VAI VER EM CIMA QUE O VALOR FOI SETADO (=), ENTÃO ELE VAI FAZER OQUE ESCREVEMOS LÁ DENTRO DO CÓDIGO
+
+// OBJECT.GETPROTOTYPEOF()
+const frutas2 = ["Banana"];
+
+console.log(Object.getPrototypeOf(""));
+console.log(Object.getPrototypeOf(frutas2));
+console.log(Array.prototype);
+// GETPROTOTYPEOF
+
+// OBJECT.IS()
+const frutas5 = ["Banana", "Uva"];
+const frutas6 = ["Banana", "Uva"];
+
+const novaFruta = frutas5;
+
+Object.is(frutas5, frutas6); //FALSE
+Object.is(frutas5, novaFruta); // TRUE
+// OBJECT.IS()
+
+//OBJECT.FREEZE()
+//OBJECT.SEAL()
+//OBJECT.PREVENTEXTENSIONS()
+
+const carro3 = {
+  marca: "Ford",
+  ano: 2018,
+};
+
+Object.seal(carro3);
+delete carro3.ano;
+carro3.cavalos = "33 cavalos";
+carro3.marca = "Honda";
+
+console.log(carro3);
