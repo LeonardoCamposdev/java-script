@@ -12,17 +12,19 @@ const carro = {
     return this.marca + " acelerou";
   },
   buzinar() {
-    return " buzinou";
+    return this.marca + " buzinou";
   },
 };
 
 const honda = Object.create(carro).init("Honda");
 console.log(honda);
 console.log(honda.acelerar());
+console.log(honda.buzinar());
 
 const ferrari = Object.create(carro).init("Ferrari");
 console.log(ferrari);
 console.log(ferrari.acelerar());
+console.log(ferrari.buzinar());
 
 // OBJECT.ASSIGN()
 const funcaoAutomovel = {
@@ -65,15 +67,15 @@ Object.defineProperties(moto2, {
     },
     set(valor) {
       // TRADUÇÃO (definir)
-      // O SET VAI MODIFICAR O VALOR QUE SETAMOS A CIMA NO GET!!!
+      // O SET VAI MODIFICAR O VALOR QUE SETAMOS!!!
       this._rodas = valor * 2 + " Total Rodas";
     },
   },
 });
 
 console.log(moto2);
-console.log((moto2.rodas = 50)); //PRIMEIRO ESTAMOS DEFININDO O VALOR DAS RODAS (GET)
-console.log(moto2.rodas); // AQUI O SET ENTRA EM AÇÃO, PORQUE ELE VAI VER EM CIMA QUE O VALOR FOI SETADO (=), ENTÃO ELE VAI FAZER OQUE ESCREVEMOS LÁ DENTRO DO CÓDIGO
+console.log((moto2.rodas = 50)); //PRIMEIRO ESTAMOS SETANDO O VALOR DAS RODAS (SET)
+console.log(moto2.rodas); // AQUI O GET ENTRA EM AÇÃO, PORQUE ELE VAI VER EM BAIXO QUE O VALOR FOI SETADO (=), ENTÃO ELE VAI FAZER OQUE ESCREVEMOS LÁ DENTRO DO CÓDIGO
 
 // OBJECT.GETPROTOTYPEOF()
 const frutas2 = ["Banana"];
@@ -81,6 +83,7 @@ const frutas2 = ["Banana"];
 console.log(Object.getPrototypeOf(""));
 console.log(Object.getPrototypeOf(frutas2));
 console.log(Array.prototype);
+console.log(Object.prototype);
 // GETPROTOTYPEOF
 
 // OBJECT.IS()
@@ -108,3 +111,17 @@ carro3.cavalos = "33 cavalos";
 carro3.marca = "Honda";
 
 console.log(carro3);
+
+// PARA VERIFICAR O TIPO DE OBJETO
+
+const frutas = ["Banana", "Uva"];
+const frase = "Oi eu sou o Goku";
+const somar = function (a, b) {
+  return a + b;
+};
+
+const carro5 = {
+  marca: "Golzinho do amor",
+};
+
+console.log(Object.prototype.toString.call(frutas));
