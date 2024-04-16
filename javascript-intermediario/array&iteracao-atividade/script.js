@@ -1,9 +1,9 @@
 // Selecione cada curso e retorne uma array
 // com objetos contendo o título, descricao,
 // aulas e horas de cada curso
-const cursos = document.querySelectorAll(".curso"); // ARRAY
+const cursos = document.querySelectorAll(".curso"); // NODELIST
 
-const arrayCursos = Array.from(cursos); // NODELIST
+const arrayCursos = Array.from(cursos);  // ARRAY
 
 const objetosCurso = arrayCursos.map((curso) => {
   const titulo = curso.querySelector("h1").innerText;
