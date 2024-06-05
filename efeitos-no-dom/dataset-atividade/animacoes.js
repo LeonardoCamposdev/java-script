@@ -1,6 +1,6 @@
 function initTabNav() {
-  const tabMenu = document.querySelectorAll(".js-tabmenu li");
-  const tabContent = document.querySelectorAll(".js-tabcontent section");
+  const tabMenu = document.querySelectorAll('[data-tab="menu"] li');
+  const tabContent = document.querySelectorAll('[data-tab="content"] section');
 
   if (tabMenu.length && tabContent.length) {
     tabContent[0].classList.add("ativo");
@@ -9,7 +9,10 @@ function initTabNav() {
       tabContent.forEach((section) => {
         section.classList.remove("ativo");
       });
-      tabContent[index].classList.add("ativo");
+
+      const direcao = tabContent[index].dataset.anime;
+      tabContent[index].classList.add("ativo", direcao);
+      console.log(tabContent[index]);
     }
 
     tabMenu.forEach((itemMenu, index) => {
@@ -22,7 +25,9 @@ function initTabNav() {
 initTabNav();
 
 function initAccordion() {
-  const accordionList = document.querySelectorAll(".js-accordion dt");
+  const accordionList = document.querySelectorAll(
+    '[data-anime="accordion"] dt'
+  );
   const activeClass = "ativo";
 
   if (accordionList.length) {
@@ -45,7 +50,7 @@ initAccordion();
 // USANDO O HREF COMO REFERÊNCIA PARA FAZER A RELAÇÃO ENRTRE O MENU E AS SECTIONS
 
 function initScrollSuave() {
-  const linksInternos = document.querySelectorAll('.js-menu a[href^="#"]');
+  const linksInternos = document.querySelectorAll('[data-menu="suave"] a[href^="#"]');
 
   if (linksInternos) {
     function scrollToSection(event) {
@@ -86,7 +91,7 @@ initScrollSuave();
 // VAMOS FAZER UMA ANIMAÇÃO COM O SCROLL BEM LEGAL.
 // PARA USAR NAS SECTIONS DO NOSSO SITE!!
 function initAnimacaoScroll() {
-  const sections = document.querySelectorAll(".js-scroll");
+  const sections = document.querySelectorAll('[data-anime="scroll"]');
 
   if (sections.length) {
     const windowMetade = window.innerHeight * 0.6; // aqui é a conta de 60% da tela
@@ -107,4 +112,4 @@ function initAnimacaoScroll() {
     window.addEventListener("scroll", animaScroll);
   }
 }
-initAnimacaoScroll(); 
+initAnimacaoScroll();
