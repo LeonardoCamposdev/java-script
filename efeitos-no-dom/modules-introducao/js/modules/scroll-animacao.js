@@ -1,5 +1,5 @@
 export default function initAnimacaoScroll() {
-  const sections = document.querySelectorAll(".js-scroll");
+  const sections = document.querySelectorAll('[data-anime="scroll"]');
 
   if (sections.length) {
     const windowMetade = window.innerHeight * 0.6; // aqui é a conta de 60% da tela
