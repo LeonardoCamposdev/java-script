@@ -1,8 +1,8 @@
 export default function initTooltip() {
-  const tooltips = document.querySelectorAll("[data-tooltip]"); //NODELIST
+  const tooltips = document.querySelectorAll("[data-tooltip]"); //NODELIST (1)
 
   if (tooltips.length) {
-    function onMouseOver() {
+    function onMouseOver() { // (4)
       // após passar o mouse por cima do elemento selecionado, vão acontecer as seguintes ações
       const toolTipBox = criartoolTipBox(this);
 
@@ -14,14 +14,14 @@ export default function initTooltip() {
       this.addEventListener("mouseleave", onMouseLeave);
     }
 
-    const onMouseMove = {
+    const onMouseMove = { //(5)
       handleEvent(event) {
         this.toolTipBox.style.top = event.pageY + 20 + "px"; //para saber onde o mouse está passando dentro do data-tooltip (e transformar em px)
         this.toolTipBox.style.left = event.pageX + 20 + "px"; //para saber onde o mouse está passando dentro do data-tooltip (e transformar em px)
       },
     };
 
-    const onMouseLeave = {
+    const onMouseLeave = { //(6)
       handleEvent() {
         this.toolTipBox.remove();
         this.element.removeEventListener("mousemove", onMouseMove); // PARA REMOVER OS EVENTOS DEPOIS DE RETIRAR O MOUSE DO ELEMENTO
@@ -29,7 +29,7 @@ export default function initTooltip() {
       },
     };
 
-    function criartoolTipBox(element) {
+    function criartoolTipBox(element) { //(3)
       const toolTipBox = document.createElement("div");
       const text = element.getAttribute("aria-label"); //vai retonar oque está dentro dessa aria-label
       toolTipBox.classList.add("tooltip");
@@ -38,7 +38,7 @@ export default function initTooltip() {
       return toolTipBox;
     }
 
-    tooltips.forEach((item) => {
+    tooltips.forEach((item) => { // (2)
       item.addEventListener("mouseover", onMouseOver); //evento para adicionar algo ao passar o mouse por cima do ELEMENTO
     });
   }
