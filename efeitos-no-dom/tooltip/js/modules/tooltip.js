@@ -1,45 +1,52 @@
-export default function initTooltip() {
-  const tooltips = document.querySelectorAll("[data-tooltip]"); //NODELIST (1)
+export default function initToolTip() {
+  const tooltips = document.querySelectorAll("[data-tooltip]"); //1
 
   if (tooltips.length) {
-    function onMouseOver() { // (4)
-      // após passar o mouse por cima do elemento selecionado, vão acontecer as seguintes ações
-      const toolTipBox = criartoolTipBox(this);
-
-      onMouseMove.toolTipBox = toolTipBox; //criando a propiedade tooltipbox dentro do (callback ONMOUSEMOVE)
+    function onMouseOver() { //4
+      const tooltipBox = criartooltipBox(this);
+      onMouseMove.tooltipBox = tooltipBox;
       this.addEventListener("mousemove", onMouseMove);
 
+      onMouseLeave.tooltipBox = tooltipBox;
       onMouseLeave.element = this;
-      onMouseLeave.toolTipBox = toolTipBox; //criando a propiedade tooltipbox dentro do (callback ONMOUSELEAVE)
       this.addEventListener("mouseleave", onMouseLeave);
     }
 
-    const onMouseMove = { //(5)
-      handleEvent(event) {
-        this.toolTipBox.style.top = event.pageY + 20 + "px"; //para saber onde o mouse está passando dentro do data-tooltip (e transformar em px)
-        this.toolTipBox.style.left = event.pageX + 20 + "px"; //para saber onde o mouse está passando dentro do data-tooltip (e transformar em px)
-      },
-    };
-
-    const onMouseLeave = { //(6)
+    const onMouseLeave = {  //6
+      //PODEMOS TAMBÉM USAR OBJETOS COMO CALLBACK
       handleEvent() {
-        this.toolTipBox.remove();
-        this.element.removeEventListener("mousemove", onMouseMove); // PARA REMOVER OS EVENTOS DEPOIS DE RETIRAR O MOUSE DO ELEMENTO
-        this.element.removeEventListener("mouseleave", onMouseLeave); // PARA REMOVER OS EVENTOS DEPOIS DE RETIRAR O MOUSE DO ELEMENTO
+        //PRECISAMOS USAR ESSE MÉTODO PARA FUNCIONAR
+        this.tooltipBox.remove();
+        this.element.removeEventListener("mouseleave", onMouseLeave);
+        this.element.removeEventListener("mousemove", onMouseMove);
       },
     };
 
-    function criartoolTipBox(element) { //(3)
-      const toolTipBox = document.createElement("div");
-      const text = element.getAttribute("aria-label"); //vai retonar oque está dentro dessa aria-label
-      toolTipBox.classList.add("tooltip");
-      toolTipBox.innerText = text;
-      document.body.appendChild(toolTipBox); //vai colocar o elemento lá em baixo do body.
-      return toolTipBox;
-    }
+    const onMouseMove = { //5
+      handleEvent(event) {
+        this.tooltipBox.style.top = event.pageY + 20 + "px";
+        this.tooltipBox.style.left = event.pageX + 20 + "px";
+      },
+    };
 
-    tooltips.forEach((item) => { // (2)
-      item.addEventListener("mouseover", onMouseOver); //evento para adicionar algo ao passar o mouse por cima do ELEMENTO
+    //CRIANDO A tooltipBox NO HTML!!!!
+    function criartooltipBox(element) { //3
+      const tooltipBox = document.createElement("div");
+      const text = element.getAttribute("aria-label");
+      tooltipBox.classList.add("tooltip");
+      tooltipBox.innerText = text;
+      document.body.appendChild(tooltipBox); //DEIXAR ESSA BOX LÁ NO FIM DO HTML
+      return tooltipBox;
+    }
+    //CRIANDO A tooltipBox NO HTML!!!!
+
+    tooltips.forEach((item) => { //2
+      item.addEventListener("mouseover", onMouseOver);
     });
+
+    // tooltipBox.style.top = event.pageY + 'px'; //PARA POSICIONAR O BOX DE ACORDO COM O MEU MOUSE EM CIMA!!!!!(TEM QUE TRANSFOMAR EM PX)
+    // O PAGE MOSTRA ONDE O MOUSE ESTÁ EM RELACÃO A PÁGINA WEB
+    //tooltipBox.style.left = event.pageX + 'px'; //PARA POSICIONAR O BOX DE ACORDO COM O MEU MOUSE EM CIMA!!!!!(TEM QUE TRANSFOMAR EM PX)
+    // O PAGE MOSTRA ONDE O MOUSE ESTÁ EM RELACÃO A PÁGINA WEB
   }
 }
