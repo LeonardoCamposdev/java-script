@@ -1,7 +1,7 @@
 import outsideCLick from "./outsideClick.js";
 
 export default function initDropdownMenu() {
-  const dropdownMenus = document.querySelectorAll("[data-dropdown"); //NODELIST
+  const dropdownMenus = document.querySelectorAll("[data-dropdown]"); //NODELIST
 
   if (dropdownMenus.length) {
     dropdownMenus.forEach((menu) => {
