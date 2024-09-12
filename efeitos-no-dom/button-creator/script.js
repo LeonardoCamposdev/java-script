@@ -39,24 +39,23 @@ function handleChange(event) {
   const value = event.target.value;
 
   handleStyle[name](value);
-  saveValues(name,value);
+  saveValue(name,value);
   showCss();
 }
 
-function saveValues(name,value){ //salvando os valores no localStorage
+function saveValue(name,value){
   localStorage[name] = value;
 }
 
-function setValues(){ // salvando todos os valores no propio browser
-  const properties = Object.keys(localStorage); //pegando as propiedades (keys/nome/value) do localStorage e transformando em uma array
+function setValue(){
+  const properties = Object.keys(localStorage);
   properties.forEach((propertie) =>{
-    handleStyle[propertie](localStorage[propertie]); //mudando os estilos do btn, para os valores setados no localStorage
-    form.elements[propertie].value = localStorage[propertie]; //pegando os elementos do form e setando os valores do localStorage
-  })
-  showCss();
+    form.elements[propertie].value = localStorage[propertie];
+    handleStyle[propertie](localStorage[propertie]);
+  });
 }
+setValue();
 
-setValues();
 
 function showCss() {
   cssText.innerHTML =
