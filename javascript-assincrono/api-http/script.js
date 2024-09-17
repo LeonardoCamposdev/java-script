@@ -1,3 +1,5 @@
-fetch('https://pokeapi.co/api/v2/pokemon')
-.then(r => r.json())
-.then(r => console.log(r))
+const url = 'https://cors-anywhere.herokuapp.com/https://www.google.com/';
+
+fetch(url)
+.then(response => response.text())
+.then(json => console.log(json))
