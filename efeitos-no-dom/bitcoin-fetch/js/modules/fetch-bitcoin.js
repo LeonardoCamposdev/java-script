@@ -18,4 +18,4 @@ function documentBitcoin(bitcoin) {
   doeBitcoin.innerText = bitcoin;
 }
 
-bitcoinFetch("https://blockchaain.info/ticker");
+bitcoinFetch("https://blockchain.info/ticker");
