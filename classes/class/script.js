@@ -5,7 +5,7 @@ class Button {
     this.background = background;
   }
 
-  element() {
+  static element() {
     const btnElement = document.createElement("button");
     btnElement.innerText = this.text;
     btnElement.style.color = this.color;
@@ -17,19 +17,9 @@ class Button {
     return btnElement;
   }
 
-  appendChildBtn(target) {
-    const elementTarget = document.querySelector(target);
-    elementTarget.appendChild(this.element());
-    return elementTarget;
-  }
 }
 
 const button1 = new Button("COMPRAR", "green", "lightblue");
 const button2 = new Button("ALUGAR", "red", "grey");
 const button3 = new Button("VENDER", "purple", "pink");
-console.log(button1);
-console.log(button2);
-console.log(button1.element());
-button1.appendChildBtn("body");
-button2.appendChildBtn("body");
-button3.appendChildBtn("body");
+console.log(Button.element())
