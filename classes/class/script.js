@@ -1,57 +1,35 @@
-function Dados(nome, idade) {
-  this.nome = nome;
-  this.idade = idade;
-}
-
-Dados.prototype.curiosidades = () => {
-  this.curiosidades = {
-    apelido: "léozinho",
-    perninha: "oca",
-  };
-  return curiosidades;
-};
-
-const novaPessoa = new Dados("Léo", "25");
-console.log(novaPessoa);
-console.log(novaPessoa.curiosidades());
-
-////////////// USANDO A CLASSE ///
-
-class Info {
-  constructor(nome, idade) {
-    this.nome = nome;
-    this.idade = idade;
-  }
-  novoCadasto() {
-    this.cadastro = {
-      apelido: "narigudo",
-      perninha: "de pau",
-    };
-    return this.cadastro;
-  }
-}
-
-const novoCadastro = new Info("leozote", "14");
-console.log(novoCadastro);
-console.log(novoCadastro.novoCadasto());
-
-/////////////BUTTON////////
-
 class Button {
-  constructor() {
+  constructor(text, color, background) {
     this.text = text;
     this.color = color;
     this.background = background;
   }
-  static element(text, color, background) {
-    const elementButton = document.createElement("button");
-    elementButton.innerText = text;
-    elementButton.style.color = color;
-    elementButton.style.backgroundColor = background;
-    return elementButton;
+
+  element() {
+    const btnElement = document.createElement("button");
+    btnElement.innerText = this.text;
+    btnElement.style.color = this.color;
+    btnElement.style.backgroundColor = this.background;
+    btnElement.style.padding = "20px 80px";
+    btnElement.style.textTransform = "uppercase";
+    btnElement.style.fontWeight = "800";
+    btnElement.style.margin = "40px";
+    return btnElement;
+  }
+
+  appendChildBtn(target) {
+    const elementTarget = document.querySelector(target);
+    elementTarget.appendChild(this.element());
+    return elementTarget;
   }
 }
 
-
-const newBtnStatic = Button.element("clique", "blue", "red");
-console.log(newBtnStatic);
+const button1 = new Button("COMPRAR", "green", "lightblue");
+const button2 = new Button("ALUGAR", "red", "grey");
+const button3 = new Button("VENDER", "purple", "pink");
+console.log(button1);
+console.log(button2);
+console.log(button1.element());
+button1.appendChildBtn("body");
+button2.appendChildBtn("body");
+button3.appendChildBtn("body");
