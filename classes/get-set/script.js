@@ -43,3 +43,4 @@ class Button{
 const blueButton = new Button('comprar','blue');
 blueButton.element = 'div';
 console.log(blueButton);
+
