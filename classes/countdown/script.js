@@ -1,8 +1,16 @@
-import Countdown from"./countdown.js"
+import Countdown from "./countdown.js";
 
-const tempoParaONatal = new Countdown("24 December 2024 23:59:59 GMT-0300");
-const tempoParaAniversario = new Countdown("24 January 2025 07:00:00 GMT-0300");
-console.log(tempoParaONatal);
-console.log(tempoParaONatal.total)
+const tempoParaONatal = new Countdown("10 February 2025 23:59:59 GMT-0300");
+console.log(tempoParaONatal.total);
 
-console.log(tempoParaAniversario.total);
+function rodarTempo(){
+  const transformJson = JSON.stringify(tempoParaONatal.total);
+  const div = document.querySelector('.div');
+  div.innerHTML = transformJson.split(',').join('-------');
+  div.innerHTML = transformJson.split('{').join('(');
+  return div
+}
+
+
+
+setInterval(rodarTempo, 1000)
