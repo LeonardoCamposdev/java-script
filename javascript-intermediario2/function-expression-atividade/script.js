@@ -13,6 +13,8 @@ console.log(meuNome);
 
 // Como podemos utilizar
 // a função abaixo.
-const active = callback => callback;
-console.log(active('testanto função'));
+const active = callback => callback();
 
+active(function(){
+  console.log('teste ativando');
+})
