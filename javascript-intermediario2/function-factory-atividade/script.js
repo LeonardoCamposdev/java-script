@@ -1,54 +1,77 @@
 function $$(selectedElements){
   const elements = document.querySelectorAll(selectedElements);
 
-  function on(onEvent, callback){
-    elements.forEach((element)=>{
-      element.addEventListener(onEvent,callback)
-    })
-    return this
-  }
-
   function hide(){
     elements.forEach((element)=>{
       element.style.display = 'none';
     })
-    return this
+    return this;
   }
 
+
   function show(){
-    elements.forEach((element)=>{
+    elements.forEach((element) =>{
       element.style.display = 'initial';
     })
-    return this
+    return this;
   }
+
+  function elementBgColor(color){
+      elements.forEach((element) =>{
+        element.style.backgroundColor = color;
+      })
+      return this;
+  }
+
+  function elementColor(color){
+    elements.forEach((element) =>{
+      element.style.color = color;
+    })
+    return this;
+}
 
   function addClass(className){
     elements.forEach((element) =>{
       element.classList.add(className);
     })
-    return this
+    return this;
   }
 
-  function removeClass(className){
+  function fontSize(){
     elements.forEach((element) =>{
-      element.classList.remove(className);
+      element.style.fontSize = 4 + 'rem';
     })
-    return this
+    return this;
   }
 
-  return{
-    selectedElements,
-    on,
+  function functionCallBack(onEvent, callback){
+    elements.forEach((element) =>{
+      element.addEventListener(onEvent,callback);
+    })
+  }
+
+
+  return {
     hide,
     show,
+    elementColor,
+    elementBgColor,
     addClass,
-    removeClass,
+    fontSize,
+    functionCallBack,
   }
 }
 
-const buttons = $$('button').on('click',buttonActive).hide().show().addClass('activePapai').removeClass('activePapai');
-console.log(buttons);
+function testando(event){
+  const paragrafos = document.querySelectorAll('p');
+  paragrafos.forEach((p) =>{
+    p.style.color = 'blue';
+  })
 
-function buttonActive(){
-  this.style.backgroundColor = 'lightGreen';
 }
+
+const buttons = new $$('button');
+buttons.hide().show().elementBgColor('lightgreen').addClass('activePapai').functionCallBack('click',testando);
+
+const testeParagrafo = new $$('p');
+testeParagrafo.elementColor('red').addClass('testeActive').fontSize();
