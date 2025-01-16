@@ -12,5 +12,4 @@ function rodarTempo(){
 }
 
 
-
 setInterval(rodarTempo, 1000)
