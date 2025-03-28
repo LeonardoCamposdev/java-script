@@ -5,8 +5,6 @@ export default function initAnimaNumeros() {
     numeros.forEach((numero) =>{
       const total = +numero.innerText;
       const incremento = Math.floor(total /100);
-      console.log(total);
-    
     
       let start = 0;
       const timer = setInterval(() =>{
