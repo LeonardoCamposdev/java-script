@@ -9,10 +9,36 @@ const names = [
 ]
 
 function golfScore(par, strokes){
+  if(strokes === par - 4){
+    return names[0];
+  }
 
+  if(strokes <= par - 2){
+    return names[1]
+  }
+
+  if(strokes == par - 1){
+    return names[2];
+  }
+
+  if(strokes === par){
+    return names[3]
+  }
+
+  if(strokes >= par + 3){
+    return names[6]
+  }
+
+  if(strokes >= par +2){
+    return names[5]
+  }
+
+  if(strokes >= par +1){
+    return names[4]
+  }
 }
 
-let result = golfScore(6, 10);
+let result = golfScore(5, 11);
 console.log(result);
 
 //par = número ideal para acetar o buraco;
