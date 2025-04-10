@@ -6,35 +6,30 @@
 //80 - 89: B
 //90 - 100: A
 
-const marks = [80, 95, 100];
+const marks = [91, 95, 90];
 
 let soma = 0;
-function calculateGrade(array){
-  array.filter((materia)=>{
+function calculateGrade(array) {
+  const media = calcularMedia(array);
+
+  if (media < 60) {
+    return 'Sua nota foi: "E"';
+  } else if (media < 70) {
+    return 'Sua nota foi "D"';
+  } else if (media < 80) {
+    return 'Sua nota foi "C"';
+  } else if (media < 90) {
+    return 'Sua nota foi "B"';
+  } else if (media > 90) {
+    return 'Sua nota foi "A"';
+  }
+}
+
+function calcularMedia(array) {
+  for (const materia of array) {
     soma += materia;
-  })
-  if(soma / 3 <= 59){
-    return 'Sua nota foi: "E"'
   }
-  else if(soma / 3 === 60 || soma / 3 <= 69){
-    return 'Sua nota foi "D"'
-  }
-
-  else if(soma / 3 === 70 || soma / 3 <= 79){
-    return 'Sua nota foi "C"'
-  }
-
-  else if(soma / 3 === 70 || soma / 3 <= 79){
-    return 'Sua nota foi "C"'
-  }
-
-  else if(soma / 3 === 80 || soma / 3 <= 89){
-    return 'Sua nota foi "B"'
-  }
-
-  else if(soma / 3 === 90 || soma / 3 <= 100){
-    return 'Sua nota foi "A"'
-  }
+  return soma / array.length;
 }
 
 console.log(calculateGrade(marks));
