@@ -17,7 +17,7 @@ function golfScore(par, strokes){
     return names[1]
   }
 
-  if(strokes == par - 1){
+  if(strokes === par - 1){
     return names[2];
   }
 
