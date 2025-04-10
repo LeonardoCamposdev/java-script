@@ -30,7 +30,8 @@ for(const propiedades in carro){
 
 const btnUnico = document.querySelector('button');
 const btnStyles = getComputedStyle(btnUnico);
+console.log(getComputedStyle(btnUnico))
 
 for(const style in btnStyles){
-  console.log(`${style}`, btnStyles[style]);
+  console.log(`${style}:`, btnStyles[style]);
 }
