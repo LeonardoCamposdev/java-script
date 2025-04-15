@@ -1,5 +1,6 @@
 .calculadora-imc{
     max-width: 350px;
+    margin: 0 auto;
     padding: 20px;
     background-color: rgb(255, 32, 32);
     border-radius: 26px;
