@@ -1,8 +1,8 @@
 .calculadora-imc{
     max-width: 350px;
-    margin: 0 auto;
+    margin: 20px auto;
     padding: 20px;
-    background-color: rgb(255, 32, 32);
+    background-color: rgb(216, 6, 6);
     border-radius: 26px;
 }
 
@@ -25,7 +25,6 @@ form label{
 
 form input{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    text-transform: uppercase;
     font-weight: 900;
     height: 40px;
     width: 70%;
@@ -52,8 +51,11 @@ form input{
 }
 
 .div-resultado{
-    height: 200px;
+    height: 170px;
     margin-top: 40px;
     border-radius: 16px;
     background-color: rgb(52, 52, 59);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
 }
