@@ -8,30 +8,29 @@ function handleClick(event){
   event.preventDefault();
 
   
-  function multiplicarAltura(){
+  function calcularIMC(){
     let multAltura = inputlAltura.value * inputlAltura.value;
     const buscarImc = inputlPeso.value / multAltura;
     return buscarImc.toFixed(1);
   }
 
+  const imc = calcularIMC();
+
   function mostrarDiv(){
     const resultado = document.querySelector('.div-resultado');
 
-     if(multiplicarAltura() >= 35.00 || multiplicarAltura() < 39.99){
-      resultado.innerText = `${inputNome.value} o seu nível de IMC é de ${multiplicarAltura()}, vai te lascar, cuida em ir pra academia, parece a vovózona, miséricordia que barriga grande, barriga de aluguel`;
-    }
-    
-    if(multiplicarAltura() >= 30.00 || multiplicarAltura() < 34.99){
-      resultado.innerText = `${inputNome.value} o seu nível de IMC é de ${multiplicarAltura()}, cuidado! você está na  Obesidade Grau I, procure um médico profissional e comece a praticar exercício fisíco`;
-    }
+    if (imc < 25) {
+      resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Parabéns, seu peso está normal. Continue assim sendo essa pessoa saudável!`;
+    } else if (imc >= 25 && imc < 30) {
+      resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Cuidado! Você está na Pré-Obesidade.`;
+    } else if (imc >= 30 && imc < 35) {
+      resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Cuidado! Você está na Obesidade Grau I. Procure um médico e comece a praticar exercícios físicos.`;
+    } else if (imc >= 35 && imc < 40) {
+      resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Obesidade Grau III (mórbida). Por favor, procure ajuda médica urgente. Sua saúde é prioridade!`;
+    } else {
+    resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Vai te lascar! Cuida em ir pra academia, tá parecendo a Vovózona!`;
+  }
 
-    if(multiplicarAltura() >= 25.00 || multiplicarAltura() < 29.99){
-      resultado.innerText = `${inputNome.value} o seu nível de IMC é de ${multiplicarAltura()}, cuidado! você está na Pré-Obesidade`;
-    }
-
-    if(multiplicarAltura() < 24.99){
-      resultado.innerText = `${inputNome.value} o seu nível de IMC é de ${multiplicarAltura()}, parabéns, seu peso está normal, continue assim sendo essa pessoa sadável `;
-    }  
     return resultado; 
   }
 
