@@ -1,19 +1,26 @@
-const btnLigar = document.querySelector('[data-btn="ligar"]');
-const btnDesligar = document.querySelector('[data-btn="desligar"]');
+const buttons = document.querySelectorAll('a');
 
-const oldBody = document.querySelector('.old-body');
-console.log(oldBody)
-const newBody = document.querySelector('.new-body')
 
-function acenderLampada(event){
-  event.preventDefault()
-  async function luzOk (url) {
-    const luzPromisse = await fetch(url);
-    const luzLigar = await luzPromisse.text();
-    oldBody.innerHTML = luzLigar;
-  }
-
-  luzOk('./lampada-ligada.html')
+function handleClick(event){
+  event.preventDefault();
+  const url = event.target;
+  pageFetch(url);
 }
 
-btnLigar.addEventListener('click',acenderLampada);
+async function pageFetch(url) {
+  const responsePage = await fetch(url);
+  const pageText = await responsePage.text();
+  replaceContent(pageText);
+}
+
+function replaceContent(text){
+  const div = document.createElement('div');
+  div.innerHTML = text;
+  const oldContent = document.querySelector('.content');
+  const newContent = div.querySelector('.content');
+  oldContent.innerHTML = newContent.innerHTML;
+}
+
+buttons.forEach((btn) =>{
+  btn.addEventListener('click', handleClick);
+})

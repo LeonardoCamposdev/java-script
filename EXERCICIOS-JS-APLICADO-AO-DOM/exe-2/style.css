@@ -18,7 +18,10 @@ img{
     
 }
 
-.btn-ligar, .btn-desligar{
+.btn-ligar, .btn-desligar{  
+    text-decoration: none;
+    color: black;
+    border: 1px solid black;
     font-size: 1.2rem;
     padding: 10px 26px;
 }

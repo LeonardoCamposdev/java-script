@@ -18,7 +18,7 @@ function replaceContent(text) {
   div.innerHTML = text;
   const oldContent = document.querySelector(".content");
   const newContent = div.querySelector(".content");
-  oldContent.innerHTML = newContent.innerHTML;
+  oldContent.innerHTML = newContent.innerHTML; 
 }
 
 window.addEventListener("popstate", () => {
