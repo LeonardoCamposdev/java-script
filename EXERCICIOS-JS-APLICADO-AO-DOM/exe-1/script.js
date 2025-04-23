@@ -7,7 +7,6 @@ const inputlPeso = document.querySelector('[data-peso]');
 function handleClick(event){
   event.preventDefault();
 
-  
   function calcularIMC(){
     let multAltura = inputlAltura.value * inputlAltura.value;
     const buscarImc = inputlPeso.value / multAltura;
@@ -26,12 +25,10 @@ function handleClick(event){
     } else if (imc >= 30 && imc < 35) {
       resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Cuidado! Você está na Obesidade Grau I. Procure um médico e comece a praticar exercícios físicos.`;
     } else if (imc >= 35 && imc < 40) {
-      resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Obesidade Grau III (mórbida). Por favor, procure ajuda médica urgente. Sua saúde é prioridade!`;
+      resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Obesidade Grau II (mórbida). Por favor, procure ajuda médica urgente. Sua saúde é prioridade!`;
     } else {
     resultado.innerText = `${inputNome.value}, o seu nível de IMC é de ${imc}. Vai te lascar! Cuida em ir pra academia, tá parecendo a Vovózona!`;
   }
-
-    return resultado; 
   }
 
   mostrarDiv();
