@@ -2,6 +2,7 @@ const buttons = document.querySelectorAll("a");
 const lampada = document.querySelector(".lampada");
 
 
+//ACENDER E APAGAR
 function handleClick(event) {
   event.preventDefault();
   const url = event.target;
@@ -24,15 +25,40 @@ function replaceContent(text) {
   const novaLampada = document.querySelector(".lampada");
   novaLampada.addEventListener("dblclick", handleDblClick);
 }
+//ACENDER E APAGAR
+
+
+// QUEBRAR A LAMPADA//
+function handleDblClick() {
+  if (this.src !== "http://127.0.0.1:5500/images/quebrada.jpg") {
+    this.src = "http://127.0.0.1:5500/images/quebrada.jpg";
+    buttons.forEach((btn)=>{
+      btn.style.pointerEvents = 'none';
+      btn.style.backgroundColor = 'grey'
+    })
+  }
+}
+// QUEBRAR A LAMPADA//
+
+function handleOuver(event){
+  console.log('está')
+  if(event.target.src !== "http://127.0.0.1:5500/images/ligada.jpg"){
+    this.src = "http://127.0.0.1:5500/images/ligada.jpg";
+  }
+}
+
+function handleOut(event){
+  if(event.target.src == "http://127.0.0.1:5500/images/ligada.jpg"){
+    this.src = "http://127.0.0.1:5500/images/desligada.jpg";
+  }
+}
+
 
 buttons.forEach((btn) => {
   btn.addEventListener("click", handleClick);
 });
 
-function handleDblClick() {
-  if (this.src !== "http://127.0.0.1:5500/images/quebrada.jpg") {
-    this.src = "http://127.0.0.1:5500/images/quebrada.jpg";
-  }
-}
-
 lampada.addEventListener("dblclick", handleDblClick);
+
+lampada.addEventListener('mouseover',handleOuver);
+lampada.addEventListener('mouseout', handleOut);

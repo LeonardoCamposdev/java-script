@@ -32,6 +32,6 @@ img{
 }
 
 .btn-desligar:hover{
-    background-color: gray;
+    background-color: rgb(226, 209, 209);
     cursor: pointer;
 }
