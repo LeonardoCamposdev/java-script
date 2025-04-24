@@ -48,6 +48,7 @@ function handleOuver(event){
 }
 
 function handleOut(event){
+  console.log('não está')
   if(event.target.src == "http://127.0.0.1:5500/images/ligada.jpg"){
     this.src = "http://127.0.0.1:5500/images/desligada.jpg";
   }
