@@ -38,7 +38,6 @@ function handleDblClick() {
 }
 // QUEBRAR A LAMPADA//
 
-
 //MOUSEOUVER NA LAMPADA//
 function handleOver(event) {
   if (event.target.src !== "http://127.0.0.1:5500/images/ligada.jpg") {
