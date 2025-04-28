@@ -1,33 +1,69 @@
-body{
-    max-width: 840px;
-    margin: 0 auto;
+body {
+  max-width: 840px;
+  margin: 0 auto;
 }
 
-h1{
-    text-align: center;
-    font-size: 2.5rem;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-transform: uppercase;
-    margin-bottom: 40px;
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 40px;
 }
 
-.carrosel{
-    overflow: hidden;
+.carrosel {
+  overflow: hidden;
 }
 
-img{
-    display: block;
-    margin: 0 auto;
-    margin-bottom: 40px;
-    max-width: 800px;
-    border-radius: 26px;
+ul {
+  display: flex;
 }
 
-
-ul{
-    display: flex;
+li {
+  list-style: none;
+  position: relative;
 }
 
-li{
-    list-style: none;
+img {
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 40px;
+  max-width: 800px;
+  border-radius: 26px;
+}
+
+.seta-esquerda {
+  width: 24px;
+  height: 24px;
+  background-color: none;
+  position: absolute;
+  left: 0px;
+  top: 1px;
+  cursor: pointer;
+  padding: 212px 60px;
+}
+
+.seta-esquerda:hover {
+  background-color: rgba(73, 71, 71, 0.644);
+  padding: 212px 60px;
+  border-top-left-radius: 26px;
+  border-bottom-left-radius: 26px;
+}
+
+.seta-direita {
+  width: 24px;
+  height: 24px;
+  background-color: none;
+  position: absolute;
+  right: -11px;
+  top: 1px;
+  cursor: pointer;
+  padding: 212px 60px;
+}
+
+.seta-direita:hover {
+  background-color: rgba(73, 71, 71, 0.644);
+  padding: 212px 60px;
+  border-top-right-radius: 48px;
+  border-bottom-right-radius: 48px;
 }
