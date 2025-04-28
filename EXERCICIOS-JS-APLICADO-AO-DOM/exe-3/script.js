@@ -1,6 +1,10 @@
 const linksCores = document.querySelectorAll(".link-cores");
 const linkAutomatico = document.querySelector('.link-automatico');
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 8e0e34a50c61a5116dccdf2cccc7e569398967a1
 function handleClick(event) {
   event.preventDefault();
   const url = event.target.href;
@@ -21,6 +25,8 @@ function replaceContent(text) {
   oldContent.innerHTML = newContent.innerHTML;
 }
 
+let automaticLoopInterval = null;
+let currentIndex = 0;
 // Iniciar loop automático infinito
 let automaticLoopInterval = null;
 let currentIndex = 0;
