@@ -1,9 +1,6 @@
 const linksCores = document.querySelectorAll(".link-cores");
 const linkAutomatico = document.querySelector('.link-automatico');
 
-let automaticLoopInterval = null;
-let currentIndex = 0;
-
 function handleClick(event) {
   event.preventDefault();
   const url = event.target.href;
@@ -25,6 +22,9 @@ function replaceContent(text) {
 }
 
 // Iniciar loop automático infinito
+let automaticLoopInterval = null;
+let currentIndex = 0;
+
 function startAutomaticLoop(event) {
   event.preventDefault();
   // Evita múltiplos loops
@@ -37,7 +37,7 @@ function startAutomaticLoop(event) {
       pageFetch(url);
     }
 
-    currentIndex = (currentIndex + 1) % 3; // Volta pro índice 0 após o 2
+    currentIndex = (currentIndex + 1) % 3; // Volta pro índice 0 após o 2   (% significa "MODULO")
   }, 1000);
 }
 
