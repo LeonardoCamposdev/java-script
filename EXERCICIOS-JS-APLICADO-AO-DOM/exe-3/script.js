@@ -1,8 +1,6 @@
 const linksCores = document.querySelectorAll(".link-cores");
 const linkAutomatico = document.querySelector('.link-automatico');
 
-let automaticLoopInterval = null;
-let currentIndex = 0;
 
 function handleClick(event) {
   event.preventDefault();
@@ -24,6 +22,8 @@ function replaceContent(text) {
   oldContent.innerHTML = newContent.innerHTML;
 }
 
+let automaticLoopInterval = null;
+let currentIndex = 0;
 // Iniciar loop automático infinito
 function startAutomaticLoop(event) {
   event.preventDefault();

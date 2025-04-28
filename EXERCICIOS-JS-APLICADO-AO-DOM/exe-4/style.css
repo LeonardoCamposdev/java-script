@@ -1,0 +1,33 @@
+body{
+    max-width: 840px;
+    margin: 0 auto;
+}
+
+h1{
+    text-align: center;
+    font-size: 2.5rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+.carrosel{
+    overflow: hidden;
+}
+
+img{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    max-width: 800px;
+    border-radius: 26px;
+}
+
+
+ul{
+    display: flex;
+}
+
+li{
+    list-style: none;
+}
