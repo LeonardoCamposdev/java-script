@@ -55,3 +55,28 @@ button:last-of-type{
   right: 0;
   transform: translate(50%, -50%);
 }
+
+button:hover{
+  background-color: rgb(87, 132, 215);
+}
+
+.length-dots{
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%, 200%);
+  display: flex;
+  gap: 10px;
+}
+
+.dot{
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #ccc;
+}
+
+.dot.current{
+  background-color: cornflowerblue;
+}
