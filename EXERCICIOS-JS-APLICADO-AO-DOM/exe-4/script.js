@@ -29,7 +29,8 @@ function controlSlide({ target: { id } }) {
       if (slideProps.scroll + slideProps.width < parseInt(contentWidth)) {
         slideProps.scroll += slideProps.width;
       }
-      if (currentSlide < contentLength - 1) { //PARA AS BOLINHAS NÃO DAREM ERRO AO PASSAR DA ULTIMA IMAGEM O CLICK
+      if (currentSlide < contentLength - 1) {
+        //PARA AS BOLINHAS NÃO DAREM ERRO AO PASSAR DA ULTIMA IMAGEM O CLICK
         currentSlide += 1;
         setCurrentDot();
       }
@@ -38,7 +39,8 @@ function controlSlide({ target: { id } }) {
     }
 
     case "previousSlide": {
-      if (currentSlide > 0) { //PARA AS BOLINHAS NÃO DAREM ERRO AO VOLTAR DA PRIMEIRA IMAGEM O CLICK
+      if (currentSlide > 0) {
+        //PARA AS BOLINHAS NÃO DAREM ERRO AO VOLTAR DA PRIMEIRA IMAGEM O CLICK
         currentSlide -= 1;
         setCurrentDot();
       }
