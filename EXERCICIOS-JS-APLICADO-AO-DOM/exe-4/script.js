@@ -59,7 +59,7 @@ function controlSlide({ target: { id } }) { //1
 
 btnNext.addEventListener("click", controlSlide); //1 
 btnPrevious.addEventListener("click", controlSlide); //1
- 
+
 // FUNÇÃO PARA CLONAR AS BOLINHAS DE ACORDO COM A QUANTIDADE DE IMAGENS QUE TEM NO SLIDE
 window.onload = () => { //2 // FUNÃO QUE VAI ACONTECER ASSIM QUE A PÁGINA ABRIR
   const contentLength = content.children.length; //pegando o total de imagens
