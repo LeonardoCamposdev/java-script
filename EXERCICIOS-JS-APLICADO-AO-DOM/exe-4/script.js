@@ -15,23 +15,37 @@ const sliderProps = {
 
 
 function setCurrentDot(){
-  const dots = document.querySelectorAll('.dot').classList.remove('current');
-  dots[currentSlide].classList.add('current')
+  const dots = document.querySelectorAll('.dot');
+  for(let dot of dots){
+    dot.classList.remove('current');
+  }
+  dots[currentSlide].classList.add('current');
 }
 
 function controlSlide({target: {id}}){
+  const contentLength = content.children.length;
   switch (id) {
     case 'nextSlide' :{
       if(sliderProps.scroll + sliderProps.width < parseInt(contentWidth)){
 
         sliderProps.scroll += sliderProps.width;
       }
-      
+
+      if(currentSlide < contentLength - 1 ){
+        currentSlide += 1;
+        setCurrentDot();
+      }
+
       return slider.scrollLeft = sliderProps.scroll;
      }
 
       
     case 'previousSlide':{
+      if(currentSlide > 0){
+        currentSlide -= 1;
+        setCurrentDot();
+      }
+
       sliderProps.scroll = sliderProps.scroll - sliderProps.width < 0 ? 0 : sliderProps.scroll - sliderProps.width;
       return slider.scrollLeft = sliderProps.scroll;
     } 
@@ -51,4 +65,5 @@ window.onload = () =>{
     const newDot = slider.parentElement.querySelector('.dot').cloneNode();
     slider.parentElement.querySelector('.length-dots').appendChild(newDot);
   }
+  setCurrentDot();
 }
