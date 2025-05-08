@@ -19,3 +19,5 @@ function result() {
     display.value = 'Error'
   }
 }
+
+'a'
