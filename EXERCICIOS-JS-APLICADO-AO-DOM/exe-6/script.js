@@ -1,22 +1,11 @@
-const soundList = {
-  a: 'boom',
-  s: 'clap',
-  d: 'hihat',
-  f: 'kick',
-  g: 'openhat',
-  h: 'ride',
-  j: 'snare',
-  k: 'tink',
-  l: 'tom',
+const calculatorBtns = document.querySelectorAll('[id^="tecla"]');
+console.log(calculatorBtns)
+
+
+function controlCalc({ key }){
+  
 }
 
-
-function controlDrum({ key }){
-  const soundName = soundList[key];
-  if(soundName){
-    const audio = new Audio(`sounds/${soundName}.wav`);
-    audio.play();
-  }
-}
-
-window.addEventListener('keydown', controlDrum);
+calculatorBtns.forEach((btn)=>{
+  btn.addEventListener('click',controlCalc);
+})
