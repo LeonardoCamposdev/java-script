@@ -56,7 +56,7 @@ function rodarTempo() {
   const minutes = document.querySelector("#minutos");
   const seconds = document.querySelector('#segundos');
   days.innerHTML = tempoParaOSaoJoao.total.days;
-  hours.innerHTML = tempoParaOSaoJoao.total.hours;
+  hours.innerHTML = `0${tempoParaOSaoJoao.total.hours}`;
   minutes.innerHTML = tempoParaOSaoJoao.total.minutes;
   seconds.innerHTML = tempoParaOSaoJoao.total.seconds;
 }
