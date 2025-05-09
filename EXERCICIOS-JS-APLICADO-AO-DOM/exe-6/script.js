@@ -1,6 +1,5 @@
 // O ONCLICK NO HTML SIGNIFICA QUE AO CLICARMOS NO ELEMENTO QUE COLOCAMOS O ONCLICK
 // VAI EXECUTAR A FUNÇÃO QUE PASSAMOS DENTRO DESSE ONCLICK
-
 function caltoDisplay(data){
     document.querySelector('#display').value += data;
 }
