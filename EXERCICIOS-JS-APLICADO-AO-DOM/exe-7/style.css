@@ -61,3 +61,12 @@ body{
     background-color: black;
     color: whitesmoke;
 }
+
+@media (max-width:500px){
+    .countdown{
+    display: flex;
+    width: 80vw;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+}

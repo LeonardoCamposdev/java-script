@@ -3,7 +3,7 @@ class Countdown {
     this.futureDate = futureDate;
   }
 
-  get _actualDate() {
+  get _newDate() {
     return new Date();
   }
 
@@ -12,7 +12,7 @@ class Countdown {
   }
 
   get _timeStampDiff() {
-    return this._futureDate.getTime() - this._actualDate.getTime();
+    return this._futureDate.getTime() - this._newDate.getTime();
   }
 
   get days() {
@@ -31,34 +31,40 @@ class Countdown {
     return Math.floor(this._timeStampDiff / 1000);
   }
 
-  get total() {
+  get total(){
     const days = this.days;
     const hours = this.hours % 24;
-    const minutes = this.minutes % 60;
+    const minutes = this.hours % 60;
     const seconds = this.seconds % 60;
-    return {
+
+    return{
       days,
       hours,
       minutes,
       seconds,
-    };
+    }
   }
 }
 
-const tempoParaOSaoJoao = new Countdown("24 June 2025 23:59:59 GMT-0300");
-console.log(tempoParaOSaoJoao.total);
+const tempoParaOSJ = new Countdown("24 June 2025 23:59:59 GMT-0300");
 
-function rodarTempo() {
-  //const transformJson = JSON.stringify(tempoParaOSaoJoao.total);
-  //console.log(transformJson)
-  const days = document.querySelector("#dias");
-  const hours = document.querySelector("#horas");
-  const minutes = document.querySelector("#minutos");
+function rodarCountdown(){
+  const days = document.querySelector('#dias');
+  const hours = document.querySelector('#horas')
+  const minutes = document.querySelector('#minutos');
   const seconds = document.querySelector('#segundos');
-  days.innerHTML = tempoParaOSaoJoao.total.days;
-  hours.innerHTML = `0${tempoParaOSaoJoao.total.hours}`;
-  minutes.innerHTML = tempoParaOSaoJoao.total.minutes;
-  seconds.innerHTML = tempoParaOSaoJoao.total.seconds;
+
+  days.innerHTML = tempoParaOSJ.total.days;
+  hours.innerHTML = tempoParaOSJ.total.hours;
+  minutes.innerHTML = tempoParaOSJ.total.minutes;
+  seconds.innerHTML = tempoParaOSJ.total.seconds;
 }
 
-setInterval(rodarTempo,1000);
+setInterval(rodarCountdown,1000)
+
+
+
+function playAudio(){
+  const audio = new Audio('./sounds/teste.mp3');
+  audio.play();
+}
