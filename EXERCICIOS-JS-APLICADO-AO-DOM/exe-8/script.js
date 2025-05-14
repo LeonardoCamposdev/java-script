@@ -11,7 +11,7 @@ function newTask() {
     alert("Digite algo para inserir na sua lista!");
   } else if (validateIfExistsNewTask()) {
     alert("Já existe uma task com essa descrição");
-    input.style.border = "2px, solid, red";
+    input.style.border = "3px, solid, red";
   } else {
     //increment to localStorege
     let values = JSON.parse(localStorage.getItem(localStorageKey) || "[]");
