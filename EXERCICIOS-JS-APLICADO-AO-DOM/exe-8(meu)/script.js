@@ -2,7 +2,6 @@ const btnNewTask = document.querySelector("#btn-new-task");
 const input = document.querySelector("#input-new-task");
 const localStorageKey = "to-do-list-lc";
 
-
 function newTask() {
   if (!input.value) {
     alert("Digite algo para inserir na sua lista!");
