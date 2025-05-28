@@ -40,7 +40,6 @@ const salveClient = () =>{
 
 //INTERAÇÕES COM O LAYOUT
 function openModal() {
-  console.log('aksdoasjdald')
   const modal = document.querySelector("#modal");
   modal.classList.add("active");
 }
