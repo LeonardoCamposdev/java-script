@@ -8,20 +8,25 @@ const tempClient = {
 const setLocalStorage = (dbClient) => localStorage.setItem("dbClient", JSON.stringify(dbClient));
 const getLocalStorage = () => JSON.parse(localStorage.getItem("dbClient")) ?? [];
 
+
+//DELETAR
 const deleteClient = (index) => {
   const dbClient = restClient();
   dbClient.splice(index, 1);
   setLocalStorage(dbClient);
 };
 
+//EDITAR
 const updadeClient = (index, client) => {
   const dbClient = restClient();
   dbClient[index] = client;
   setLocalStorage(dbClient);
 };
 
+//PUXAR
 const restClient = () => getLocalStorage();
 
+//CRIAR
 const createClient = (client) => {
   const dbClient = getLocalStorage();
   dbClient.push(client);
