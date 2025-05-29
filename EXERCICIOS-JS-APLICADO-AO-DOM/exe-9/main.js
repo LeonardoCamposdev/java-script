@@ -32,14 +32,27 @@ const createClient = (client) => {
 };
 
 const isvalidFields = () =>{
-  const form = document.querySelector('#form');
-  return form.reportValidity();
+  return document.getElementById('form').reportValidity();
 }
 
 //MANIPULANDO O DOM!!
+const clearFields = () =>{
+  const modalField = document.querySelectorAll('.modal-field');
+  modalField.forEach((field) =>{
+    field.value = '';
+  })
+}
+
 function saveClient(){
   if(isvalidFields()){
-    console.log('validando cadastro');
+    const client = {
+      nome: document.getElementById('nome').value,
+      email: document.getElementById('email').value,
+      celular: document.getElementById('celular').value,
+      cidade: document.getElementById('cidade').value,
+    }
+    createClient(client);
+    closeModal();
   }
 }
 
@@ -50,6 +63,7 @@ function openModal(){
 }
 
 function closeModal(){
+   clearFields();
    const modal = document.querySelector('#modal');
    modal.classList.remove('active');
 }
