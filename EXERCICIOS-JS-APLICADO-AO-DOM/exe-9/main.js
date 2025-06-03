@@ -63,17 +63,15 @@ const createRow = (client) => {
                         <button type="button" class="button red">excluir</button>
                     </td>
   `;
-  const tbody = document.createElement('tbody');
-  document.getElementById('table').appendChild(tbody);
+  const tbody = document.querySelector('tbody');
   tbody.appendChild(newRow);
 };
 
 const clearTable = () =>{
-  const rows = document.querySelectorAll("tr")
+  const rows = document.querySelectorAll("tbody> tr")
   rows.forEach((row) =>{
-    row.innerHTML = '';
+    row.parentNode.removeChild(row);
   });
-  return rows;
 }
 
 const updadeTable = () => {
