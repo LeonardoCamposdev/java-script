@@ -62,7 +62,7 @@ function saveClient() {
 const createRow = (client, index) => {
   const newRow = document.createElement("tr");
   newRow.innerHTML = `
-                      <td>${client.nome}</td>
+                    <td>${client.nome}</td>
                     <td>${client.email}</td>
                     <td>${client.celular}</td>
                     <td>${client.cidade}</td>
