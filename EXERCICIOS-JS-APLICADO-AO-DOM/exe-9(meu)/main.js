@@ -46,9 +46,7 @@ const saveClient = () =>{
     }
     createClient(client);
     clearFields();
-    closeModal()
-  } else{
-    console.log('errou')
+    closeModal();
   }
 }
 
