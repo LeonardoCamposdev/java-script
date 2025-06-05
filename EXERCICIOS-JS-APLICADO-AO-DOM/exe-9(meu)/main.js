@@ -45,9 +45,31 @@ const saveClient = () =>{
       cidade: document.getElementById('cidade').value,
     }
     createClient(client);
+    updadeTable();
     clearFields();
     closeModal();
   }
+}
+
+const createRow = (client) =>{
+  const row = document.createElement('tr');
+  row.innerHTML = `
+         <td>${client.nome}</td>
+                    <td>${client.email}</td>
+                    <td>${client.celular}</td>
+                    <td>${client.cidade}</td>
+                    <td>
+                        <button type="button" class="button green">editar</button>
+                        <button type="button" class="button red">excluir</button>
+                    </td>
+  `
+  const tbody = document.querySelector('tbody');
+  tbody.appendChild(row);
+}
+
+const updadeTable = () =>{
+  const dbClient = readClient();
+  dbClient.forEach(createRow);
 }
 
 const openModal = () =>{
@@ -59,6 +81,8 @@ const closeModal = () =>{
   const modal = document.querySelector('#modal');
   modal.classList.remove('active');
 }
+
+updadeTable();
 
 //EVENTS
 document.getElementById('cadastrarCliente').addEventListener('click',openModal);
