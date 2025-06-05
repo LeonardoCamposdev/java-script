@@ -28,6 +28,13 @@ const createClient = (client) => {
 const isvalidFields = () =>{
   return document.getElementById('form').reportValidity();
 }
+
+const clearFields = () =>{
+  const modalFiled = document.querySelectorAll('.modal-field');
+  modalFiled.forEach((field) =>{
+    field.value = '';
+  })
+}
 //MANIPULANDO O DOM
 const saveClient = () =>{
   if(isvalidFields()){
@@ -38,6 +45,8 @@ const saveClient = () =>{
       cidade: document.getElementById('cidade').value,
     }
     createClient(client);
+    clearFields();
+    closeModal()
   } else{
     console.log('errou')
   }
