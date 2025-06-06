@@ -51,7 +51,7 @@ const saveClient = () =>{
   }
 }
 
-const createRow = (client) =>{
+const createRow = (client,index) =>{
   const row = document.createElement('tr');
   row.innerHTML = `
          <td>${client.nome}</td>
@@ -59,17 +59,30 @@ const createRow = (client) =>{
                     <td>${client.celular}</td>
                     <td>${client.cidade}</td>
                     <td>
-                        <button type="button" class="button green">editar</button>
-                        <button type="button" class="button red">excluir</button>
+                        <button type="button" class="button green" id='edit-${index}'>Editar</button>
+                        <button type="button" class="button red" id='delete-${index}'>Excluir</button>
                     </td>
   `
   const tbody = document.querySelector('tbody');
   tbody.appendChild(row);
 }
 
+const clearTable = () =>{
+  const rows = document.querySelectorAll('tbody>tr');
+  rows.forEach(row => row.parentNode.removeChild(row));
+}
+
 const updadeTable = () =>{
   const dbClient = readClient();
+  clearTable();
   dbClient.forEach(createRow);
+}
+
+const editDelete = (event) =>{
+  if(event.target.type === 'button'){
+    console.log(event.target.id.split('-'))
+  }
+
 }
 
 const openModal = () =>{
@@ -89,4 +102,6 @@ document.getElementById('cadastrarCliente').addEventListener('click',openModal);
 
 document.getElementById('modalClose').addEventListener('click',closeModal);
 
-document.getElementById('salvar').addEventListener('click',saveClient)
+document.getElementById('salvar').addEventListener('click',saveClient);
+
+document.querySelector('tbody').addEventListener('click', editDelete);
