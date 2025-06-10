@@ -1,49 +1,32 @@
-h1{
-  text-align: center;
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
 }
 
 
-img{
-  width: 50%;
-  height: 50%;
-  margin: 0 auto;
-  display: block;
-  display: none;
+.div-1{
+    display: block;
+    background-color: brown;
+    height: 400px;
+    width: 600px;
+    position: absolute; /* ou fixed, se quiser centralizar em toda a tela */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.btn{
-  display: block;
-  margin: 0 auto;
-  margin-top: 350px;
-  padding: 16px 50px;
-  text-transform: uppercase;
-  font-weight: 600;
-  background-color: rgb(252, 44, 44);
-  cursor: pointer;
+.div-2{
+    display: none;
+    background-color: brown;
+    height: 400px;
+    width: 600px;
+    position: absolute; /* ou fixed, se quiser centralizar em toda a tela */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
-.btn:hover{
-  background-color: rgb(255, 23, 166);
-}
-
-.btn.removebtn{
-  display: none;
-}
-
-.iframe{
-  display: none;
-  margin: 0 auto;
-}
-
-iframe.active{
-  display: block;
-}
-
-.img.active{
-  display: block;
-  background-color: rgb(255, 23, 166);
-}
-
-body.cor{
-  background-color: rgb(255, 23, 166);
+.div-2.active{
+    display: block;
 }
