@@ -1,32 +1,35 @@
-*{
-    padding: 0px;
-    margin: 0px;
-    box-sizing: border-box;
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
 }
 
-
-.div-1{
-    display: block;
-    background-color: brown;
-    height: 400px;
-    width: 600px;
-    position: absolute; /* ou fixed, se quiser centralizar em toda a tela */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.div-1 {
+  display: block;
+  background-color: brown;
+  height: 400px;
+  width: 600px;
+  position: absolute; /* ou fixed, se quiser centralizar em toda a tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
 }
 
-.div-2{
-    display: none;
-    background-color: brown;
-    height: 400px;
-    width: 600px;
-    position: absolute; /* ou fixed, se quiser centralizar em toda a tela */
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+iframe {
+  height: 400px;
+  width: 600px;
+  position: absolute; /* ou fixed, se quiser centralizar em toda a tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 6px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
 }
 
-.div-2.active{
-    display: block;
+iframe.active {
+   opacity: 1;
+  visibility: visible;
 }
