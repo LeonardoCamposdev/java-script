@@ -1,5 +1,5 @@
-const regexp = /./g;
+const regexp = /regexp|regex/gi;
 
-const frase = 'Brasil é com Z Brazil'.replace(regexp, '0');
-console.log(frase)
+const frase = 'qual é o certo, regexp ou regex?'.replace(regexp, 'xesq');
+console.log(frase);
 
