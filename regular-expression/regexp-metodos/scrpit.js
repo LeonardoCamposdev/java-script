@@ -30,10 +30,26 @@ console.log(tags.replace(regexp3, '$& class="ativo"'));
 
 const emails = `
 empresa@email.com
-contato@email.com
-suporte@email.com
+contato@outluk.com
+suporte@lives.com
 `;
 
-const regexp4 = /(\w+@)[\w.]+/g;
+console.log(emails);
+const regexp4 = /(\w+@)([\w.]+)/g;
 
-console.log(emails.replace(regexp4, '$1gmail.com'));
+//console.log(emails.replace(regexp4, '$1gmail.com'));
+
+const resultados = emails.replace(regexp4,function(...args){
+  console.log(args);
+  if(args[2] === 'email.com'){
+    return `${args[1]}gmail.com.br` 
+  } else if(args[2] === 'outluk.com'){
+    return `${args[1]}outlook.com.br`
+  } else if(args[2] === 'lives.com'){
+    return `${args[1]}live.com.br`
+  } else{
+    return 'Nunca nem vi deu erro em algo ai patrão'
+  }
+});
+
+console.log(resultados)
