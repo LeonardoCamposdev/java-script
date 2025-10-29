@@ -4,7 +4,7 @@ export default class ValidarCpf{
   }
 
   limpar(cpf){
-    return cpf.replace(/\D/g,'');
+    return cpf.replace(/\D/g, '');
   }
 
   construir(cpf){
@@ -17,13 +17,13 @@ export default class ValidarCpf{
   }
 
   validar(cpf){
-    const matchCpf = cpf.match(/(?:\d{3}[-.\s]?){3}\d{2}/g);
+    const matchCpf = cpf.match(/(?:\d{3}[.-\s]?){3}\d{2}/g);
     return (matchCpf && matchCpf[0] === cpf);
   }
 
   validarNaMudanca(cpfElement){
-    if(this.validar(cpfElement.value)) {
-      cpfElement.value = this.formatar(cpfElement.value);
+    if(this.validar(cpfElement.value)){
+      cpfElement.value = this.formatar(cpfElement.value)
     } else{
 
     }
