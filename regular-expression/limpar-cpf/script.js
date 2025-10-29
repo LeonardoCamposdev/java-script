@@ -1,7 +1,7 @@
 const cpfList = document.querySelectorAll('.cpf li');
 
-const elementsInnerText = ([...elements]) =>{
-  return elements.map((element) =>{
+const elementInnterText = ([...elements]) =>{
+  return elements.map((element)=>{
     return element.innerText;
   })
 }
@@ -11,20 +11,22 @@ const limparCPF = (cpf) =>{
 }
 
 const construirCPF = (cpf) =>{
-  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4');
+  return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/g, '$1.$2.$3-$4')
 }
 
-const formatarCPFS = (cpf) =>{
-  return cpf.map(limparCPF).map(construirCPF);
+const formartarCPFS = (cpfs) =>{
+  return cpfs.map(limparCPF).map(construirCPF);
 }
 
-const substituiCPFS = (cpfsElements) =>{
-  const cpfs = elementsInnerText(cpfsElements);
-  const cpfsFormatados = formatarCPFS(cpfs);
+const substituiCPFS = (cpfElements) =>{
+  const cpfs = elementInnterText(cpfElements);
+  const cpfsFormatados = formartarCPFS(cpfs);
 
-  cpfsElements.forEach((element,index)=>{
+  cpfElements.forEach((element,index) =>{
     element.innerText = cpfsFormatados[index];
   })
 }
 
-substituiCPFS(cpfList);
+const resultado = elementInnterText(cpfList);
+console.log(formartarCPFS(resultado));
+console.log(substituiCPFS(cpfList));
