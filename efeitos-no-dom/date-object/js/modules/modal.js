@@ -3,19 +3,19 @@ export default function initModal() {
   const modalFechar = document.querySelector('[data-modal="fechar"]');
   const modalContainer = document.querySelector('[data-modal="container"]');
 
+  function openCloseModal(event) {
+    event.preventDefault();
+    modalContainer.classList.toggle("ativo");
+  }
+
+  function toCloseContainer(event) {
+    event.preventDefault();
+    if (event.target === modalContainer) {
+      modalContainer.classList.remove("ativo");
+    }
+  }
+
   if (modalAbrir && modalFechar && modalContainer) {
-    function openCloseModal(event) {
-      event.preventDefault();
-      modalContainer.classList.toggle("ativo");
-    }
-
-    function toCloseContainer(event) {
-      event.preventDefault();
-      if (event.target === modalContainer) {
-        modalContainer.classList.remove("ativo");
-      }
-    }
-
     modalAbrir.addEventListener("click", openCloseModal);
     modalFechar.addEventListener("click", openCloseModal);
     modalContainer.addEventListener("click", toCloseContainer);
